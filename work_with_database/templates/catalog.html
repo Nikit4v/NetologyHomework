@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Каталог{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="header">
+            <h1><a href="/catalog">Каталог</a></h1>
+        </div>
+
+        <div class="sort-block">
+            <a href="/catalog/?sort=name">Сортировка по имени</a>
+            <a href="/catalog/?sort=min_price">Сортировка по цене</a>
+        </div>
+
+        <div class="content">
+            {% for obj in list %}
+                <div class="phone">
+                    <h1>{{ obj.name }}</h1>
+                    <p class="price">{{ obj.price }}р</p>
+                    <img src="{{ obj.image }}" alt="Ошибка загрузки изображения">
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
